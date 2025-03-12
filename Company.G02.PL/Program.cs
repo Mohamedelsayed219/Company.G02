@@ -16,6 +16,7 @@ namespace Company.G02.PL
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>(); // Allow DI From DepartmentRepository  
+            builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>(); // Allow DI From EmployeeRepository  
 
             builder.Services.AddDbContext<CompanyDbContext>(Options =>
             {
