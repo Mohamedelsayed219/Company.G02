@@ -36,13 +36,13 @@
                     <td>@items.Name</td>
                     <td>@items.CreateAt</td>
                     <td>
-                        <a asp-action="Details" class="btn btn-warning">Details</a>
+                        <a asp-action="Details" asp-route-id ="@items.Id" class="btn btn-warning">Details</a>
                     </td>
                     <td>
-                        <a asp-action="Edit" class="btn btn-success">Update</a>
+                        <a asp-action="Edit" asp-route-id="@items.Id" class="btn btn-success">Update</a>
                     </td>
                     <td>
-                        <a asp-action="Delete" class="btn btn-danger">Delete</a>
+                        <a asp-action="Delete" asp-route-id="@items.Id"  class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             }
