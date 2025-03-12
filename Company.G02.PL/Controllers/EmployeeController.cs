@@ -77,25 +77,54 @@ namespace Company.G02.PL.Controllers
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            //if (id is null) return BadRequest("Invaild Id");
+            if (id is null) return BadRequest("Invaild Id");
 
-            //var department = _departmentrepository.Get(id.Value);
+            var employee = _employeerepository.Get(id.Value);
 
-            //if (department is null) return NotFound(new { StatusCode = 404, message = $"Department With Id :{id} is not found" });
+            if (employee is null) return NotFound(new { StatusCode = 404, message = $"Employee With Id :{id} is not found" });
+            var employeeDto = new CreateEmployeeDto()
+            {
+                
+                Name = employee.Name,
+                Address = employee.Address,
+                Age = employee.Age,
+                CreateAt = employee.CreateAt,
+                HiringDate = employee.HiringDate,
+                Email = employee.Email,
+                IsActive = employee.IsActive,
+                IsDelete = employee.IsDelete,
+                Phone = employee.Phone,
+                Salary = employee.Salary,
 
-            return Details(id, "Edit");
+            };
+            return View(employeeDto);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([FromRoute] int id, Employee model)
+        public IActionResult Edit([FromRoute] int id, CreateEmployeeDto model)
         {
 
             if (ModelState.IsValid)
             {
-                if (id != model.Id) return BadRequest();
-                var count = _employeerepository.Update(model);
+                //if (id != model.Id) return BadRequest();
+                var employee = new Employee()
+                {
+                    Id = id,
+                    Name = model.Name,
+                    Address = model.Address,
+                    Age = model.Age,
+                    CreateAt = model.CreateAt,
+                    HiringDate = model.HiringDate,
+                    Email = model.Email,
+                    IsActive = model.IsActive,
+                    IsDelete = model.IsDelete,
+                    Phone = model.Phone,
+                    Salary = model.Salary,
+
+                };
+                var count = _employeerepository.Update(employee);
 
                 if (count > 0)
                 {
