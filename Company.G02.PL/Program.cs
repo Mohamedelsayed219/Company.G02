@@ -15,8 +15,8 @@ namespace Company.G02.PL
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>(); // Allow DI From DepartmentRepository  
-            builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>(); // Allow DI From EmployeeRepository  
+            builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>(); // Allow DI For DepartmentRepository  
+            builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>(); // Allow DI For EmployeeRepository  
 
             builder.Services.AddDbContext<CompanyDbContext>(Options =>
             {

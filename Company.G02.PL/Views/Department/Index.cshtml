@@ -29,13 +29,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var items in Model) 
+            @foreach (var item in Model) 
             {
                 <tr>
-                    <td>@items.Code</td>
-                    <td>@items.Name</td>
-                    <td>@items.CreateAt</td>
-                    <partial name="_ButtonPartialView" model="@items.Id" />
+                    <td>@item.Code</td>
+                    <td>@item.Name</td>
+                    <td>@item.CreateAt</td>
+                    <partial name="_ButtonPartialView" model="@item.Id" />
                 </tr>
             }
         </tbody>

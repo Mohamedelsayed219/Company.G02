@@ -36,20 +36,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var items in Model) 
+            @foreach (var item in Model) 
             {
                 <tr>
-                    <td>@items.Name</td>
-                    <td>@items.Age</td>
-                    <td>@items.Email</td>
-                    <td>@items.Address</td>
-                    <td>@items.Phone</td>
-                    <td>@items.Salary</td>
-                    <td>@items.IsActive</td>
-                    <td>@items.IsDelete</td>
-                    <td>@items.HiringDate</td>
-                    <td>@items.CreateAt</td>
-                    <partial name="_ButtonPartialView" model="@items.Id" />
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Email</td>
+                    <td>@item.Address</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Salary</td>
+                    <td>@item.IsActive</td>
+                    <td>@item.IsDelete</td>
+                    <td>@item.HiringDate</td>
+                    <td>@item.CreateAt</td>
+                    <partial name="_ButtonPartialView" model="@item.Id" />
                 </tr>
             }
         </tbody>
