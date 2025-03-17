@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Company.G02.BLL.Interfaces;
 using CompanyG02.DAL.Data.Contexts;
 using CompanyG02.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Company.G02.BLL.repositories
 {
@@ -20,11 +21,19 @@ namespace Company.G02.BLL.repositories
 
         public IEnumerable<T> GetAll()
         {
+            if (typeof(T) == typeof(Employee)) 
+            {
+                return(IEnumerable<T>)_context.Employees.Include(E => E.Department).ToList();
+            }
             return _context.Set<T>().ToList();
         }
 
         public T? Get(int id)
         {
+            if (typeof(T) == typeof(Employee))
+            {
+                return _context.Employees.Include(E => E.Department).FirstOrDefault(E => E.Id == id) as T;
+            }
             return _context.Set<T>().Find(id);
         }
 
