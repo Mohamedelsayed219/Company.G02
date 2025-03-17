@@ -28,6 +28,11 @@ namespace Company.G02.PL
 
             //builder.Services.AddAutoMapper(typeof(EmployeeProfile));
             builder.Services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            //builder.Services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            //builder.Services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            //builder.Services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            //builder.Services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            //builder.Services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
 
 
             // Life Time
