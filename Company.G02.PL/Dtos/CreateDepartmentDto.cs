@@ -4,6 +4,7 @@ namespace Company.G02.PL.Dtos
 {
     public class CreateDepartmentDto
     {
+        
         [Required(ErrorMessage = "Code is Required !")]
         public string Code { get; set; }
 
