@@ -1,3 +1,4 @@
+using Company.G02.BLL;
 using Company.G02.BLL.Interfaces;
 using Company.G02.BLL.repositories;
 using Company.G02.PL.Mapping;
@@ -17,9 +18,13 @@ namespace Company.G02.PL
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>(); // Allow DI For DepartmentRepository  
-            builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>(); // Allow DI For EmployeeRepository  
+            
+            //builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>(); // Allow DI For DepartmentRepository  
+           
+            //builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>(); // Allow DI For EmployeeRepository  
 
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddDbContext<CompanyDbContext>(Options =>
             {
                 Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -72,3 +77,4 @@ namespace Company.G02.PL
         }
     }
 }
+
