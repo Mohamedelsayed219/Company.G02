@@ -2,10 +2,12 @@
 using Company.G02.BLL.repositories;
 using Company.G02.PL.Dtos;
 using CompanyG02.DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Company.G02.PL.Controllers
 {
+    [Authorize]
     // MVC Controller
     public class DepartmentController : Controller
     {
