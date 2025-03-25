@@ -5,10 +5,12 @@ using Company.G02.BLL.repositories;
 using Company.G02.PL.Dtos;
 using Company.G02.PL.Helpers;
 using CompanyG02.DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Company.G02.PL.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
