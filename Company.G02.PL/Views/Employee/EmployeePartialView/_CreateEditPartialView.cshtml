@@ -3,8 +3,8 @@
 @inject IDepartmentRepository _departmentPepo
 
 @{
-    var Departments = new SelectList(ViewData["department"] as IEnumerable<Department> ,"Id","Name");
-    // var Departments = new SelectList(_departmentPepo.GetAll(), "Id", "Name");
+    // var Departments = new SelectList(ViewData["department"] as IEnumerable<Department> ,"Id","Name");
+    var Departments = new SelectList(_departmentPepo.GetAll(), "Id", "Name");
 }
 
 <div class="my-3">
