@@ -27,6 +27,8 @@ namespace Company.G02.PL
 
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
             builder.Services.AddDbContext<CompanyDbContext>(Options =>
             {
                 Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -53,7 +55,8 @@ namespace Company.G02.PL
             builder.Services.AddSingleton<ISingletonService, SingletonService>();   // Per App
 
             builder.Services.AddIdentity<AppUser, IdentityRole>()
-                            .AddEntityFrameworkStores<CompanyDbContext>();
+                            .AddEntityFrameworkStores<CompanyDbContext>()
+                            .AddDefaultTokenProviders();
 
             builder.Services.ConfigureApplicationCookie(config =>
             {
