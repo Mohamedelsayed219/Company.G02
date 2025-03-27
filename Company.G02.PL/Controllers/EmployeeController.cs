@@ -64,8 +64,8 @@ namespace Company.G02.PL.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var departments = await _unitOfWork.DepartmentRepository.GetAllAsync();
-            ViewData["departments"] = departments;
+            //var departments = await _unitOfWork.DepartmentRepository.GetAllAsync();
+            //ViewData["departments"] = departments;
 
             return View();
         }
@@ -117,8 +117,8 @@ namespace Company.G02.PL.Controllers
         public async Task<IActionResult> Edit(int? id )
         {
             
-            var departments = await _unitOfWork.EmployeeRepository.GetAllAsync();
-            ViewData["departments"] = departments;
+            //var departments = await _unitOfWork.EmployeeRepository.GetAllAsync();
+            //ViewData["departments"] = departments;
 
             return await Details(id,"Edit");
         }
