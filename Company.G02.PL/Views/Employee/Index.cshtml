@@ -4,9 +4,18 @@
 @{
     ViewData["Title"] = "Index";
     // ViewData["Message"];
-    string? ViewDataMessage = ViewData["Message"] as string;
+    // string? ViewDataMessage = ViewData["Message"] as string;
     // string? ViewBagMessage = ViewBag.Message;
 }
+
+
+@if (!string.IsNullOrEmpty(TempData["Message"] as string))
+{
+    <div class="m-3 alert alert-info">
+        <p>@TempData["Message"]</p>
+    </div>
+}
+
 
 <h1>All Employee</h1>
 
@@ -23,13 +32,6 @@
     <p>@ViewBag.Message</p>
 </div>
 *@
-
-@if (!string.IsNullOrEmpty(TempData["Message"] as string)) 
-{
-    <div class="m-3 alert alert-info">
-        <p>@TempData["Message"]</p>
-    </div>
-}
 
 
 <form>
@@ -98,7 +100,7 @@
                     {
                         <td>@item.Department.Name</td>
                     }
-                    <partial name="_ButtonPartialView" model="@item.Id" />
+                    <partial name="_ButtonPartialView" model="@item.Id.ToString()" />
                 </tr>
             }
         </tbody>
