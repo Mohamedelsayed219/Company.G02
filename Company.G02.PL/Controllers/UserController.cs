@@ -25,6 +25,7 @@ namespace Company.G02.PL.Controllers
                 {
                    Id = U.Id,
                    UserName = U.UserName,
+                   Email = U.Email,
                    FirstName = U.FirstName,
                    LastName = U.LastName,
                    Roles = _userManager.GetRolesAsync(U).Result
@@ -37,6 +38,7 @@ namespace Company.G02.PL.Controllers
                 {
                     Id = U.Id,
                     UserName = U.UserName,
+                    Email =U.Email,
                     FirstName = U.FirstName,
                     LastName = U.LastName,
                     Roles = _userManager.GetRolesAsync(U).Result
