@@ -64,8 +64,8 @@ namespace Company.G02.PL.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var departments = await _unitOfWork.DepartmentRepository.GetAllAsync();
-            ViewData["departments"] = departments;
+            //var departments = await _unitOfWork.DepartmentRepository.GetAllAsync();
+            //ViewData["departments"] = departments;
 
             return View();
         }
@@ -104,11 +104,11 @@ namespace Company.G02.PL.Controllers
 
             var employee = await _unitOfWork.EmployeeRepository.GetAsync(id.Value);
 
-            if (employee is null) return NotFound(new { StatusCode = 404, message = $"Employee With Id :{id} is not found" });
+            if (employee is null) return NotFound(new { StatusCode = 404, message = $"employee With Id :{id} is not found" });
 
             var dto = _mapper.Map<CreateEmployeeDto>(employee);
 
-            return View(viewName, dto);
+            return View( dto);
         }
 
 
@@ -117,8 +117,8 @@ namespace Company.G02.PL.Controllers
         public async Task<IActionResult> Edit(int? id )
         {
             
-            var departments = await _unitOfWork.EmployeeRepository.GetAllAsync();
-            ViewData["departments"] = departments;
+            //var departments = await _unitOfWork.EmployeeRepository.GetAllAsync();
+            //ViewData["departments"] = departments;
 
             return await Details(id,"Edit");
         }
