@@ -104,11 +104,11 @@ namespace Company.G02.PL.Controllers
 
             var employee = await _unitOfWork.EmployeeRepository.GetAsync(id.Value);
 
-            if (employee is null) return NotFound(new { StatusCode = 404, message = $"Employee With Id :{id} is not found" });
+            if (employee is null) return NotFound(new { StatusCode = 404, message = $"employee With Id :{id} is not found" });
 
             var dto = _mapper.Map<CreateEmployeeDto>(employee);
 
-            return View(viewName, dto);
+            return View( dto);
         }
 
 

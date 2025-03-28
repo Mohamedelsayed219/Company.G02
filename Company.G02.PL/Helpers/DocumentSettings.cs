@@ -11,7 +11,7 @@
 
             //var folderPath = Directory.GetCurrentDirectory()+ "\\wwwroot\\Files\\"+ folderName;
 
-            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Files", folderName);
+            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\files", folderName);
 
             // 2.Get File Name And Make It Unique
 
@@ -20,7 +20,7 @@
             // File Path
             var filePath = Path.Combine(folderPath, fileName);
 
-            using var fileStream = new FileStream(folderPath, FileMode.Create);
+            using var fileStream = new FileStream(filePath, FileMode.Create);
 
             file.CopyTo(fileStream);
 
@@ -34,7 +34,7 @@
 
         public static void DeleteFile(string fileName,string folderName) 
         {
-            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Files", folderName, fileName);
+            var folderPath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\files", folderName, fileName);
 
             if (File.Exists(folderPath))
                 File.Delete(folderPath);
