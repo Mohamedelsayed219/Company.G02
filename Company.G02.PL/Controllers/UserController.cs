@@ -66,6 +66,7 @@ namespace Company.G02.PL.Controllers
                 Id = user.Id,
                 UserName = user.UserName,
                 FirstName = user.FirstName,
+                Email = user.Email,
                 LastName = user.LastName,
                 Roles = _userManager.GetRolesAsync(user).Result
             };
